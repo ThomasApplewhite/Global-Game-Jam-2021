@@ -38,6 +38,7 @@ public class Gun : MonoBehaviour
             {
                 hitInfo.transform.GetComponent<ActorHealth>()?.takeDamage(damage);
             }
+            //LaunchBullet();
 
             StartCoroutine(cooldown(shotCooldown));
         }
@@ -50,4 +51,9 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(coolTime);
         canShoot = true;
     }
+
+    /*void LaunchBullet()
+    {
+        Instantiate()
+    }*/
 }

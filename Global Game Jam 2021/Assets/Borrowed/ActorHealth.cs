@@ -39,7 +39,7 @@ public class ActorHealth : MonoBehaviour
         this.currentHealth -= damage;
 
         //trigger actor damage effects
-        //this.gameObject.SendMessage("DoActorDamageEffect", damage);
+        this.gameObject.SendMessage("DoActorDamageEffect", damage);
 
         //if the attack killed the thing
         if(this.currentHealth <= 0){

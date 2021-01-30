@@ -36,4 +36,26 @@ public class PlayerScript : MonoBehaviour
             1.0f
         );
     }
+
+    public void DoActorDamageEffect()
+    {
+        StartCoroutine(screenBlip());
+    }
+
+    IEnumerator screenBlip()
+    {
+        var oldColor = deathScreen.color;
+
+        deathScreen.color = new Color(
+            deathScreen.color.r,
+            deathScreen.color.g,
+            deathScreen.color.b,
+            0.6f
+        );
+        Debug.Log("Oofoff");
+
+        yield return new WaitForSeconds(.5f);
+
+        deathScreen.color = oldColor;
+    }
 }
