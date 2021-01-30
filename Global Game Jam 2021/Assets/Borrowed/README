@@ -1,3 +1,7 @@
 This folder holds assets that I stole lol
 
-FPS Character Controller: https://unitylist.com/p/10p9/New-Unity-Input-First-Person-Controller
+BasicPlayerController.cs: https://unitylist.com/p/10p9/New-Unity-Input-First-Person-Controller
+PlayerControls.inputactions: https://unitylist.com/p/10p9/New-Unity-Input-First-Person-Controller
+PlayerControls.cs: (generated from the above file)
+
+ActorHealth.cs: I actually wrote this myself for a different project lol
