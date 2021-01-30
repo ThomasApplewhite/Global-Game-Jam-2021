@@ -604,9 +604,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3034200536481729935, guid: 66e5b7d5faf3786a9a737210cacc869e, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 110945958284249995, guid: bcbf4de9d5e45891696bcdb22074693e, type: 3}
     - target: {fileID: 3034200536481729975, guid: 66e5b7d5faf3786a9a737210cacc869e, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034200536506038500, guid: 66e5b7d5faf3786a9a737210cacc869e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28069878
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034200536506038500, guid: 66e5b7d5faf3786a9a737210cacc869e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6374513
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034200536506038500, guid: 66e5b7d5faf3786a9a737210cacc869e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034200536506038500, guid: 66e5b7d5faf3786a9a737210cacc869e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034200536506038500, guid: 66e5b7d5faf3786a9a737210cacc869e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034200536506038500, guid: 66e5b7d5faf3786a9a737210cacc869e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034200536506038500, guid: 66e5b7d5faf3786a9a737210cacc869e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66e5b7d5faf3786a9a737210cacc869e, type: 3}
@@ -664,6 +696,10 @@ PrefabInstance:
     - target: {fileID: 7698842175483231551, guid: fcc1f24fe52caa411960da0a043980c6, type: 3}
       propertyPath: m_Name
       value: Enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7698842175483231551, guid: fcc1f24fe52caa411960da0a043980c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcc1f24fe52caa411960da0a043980c6, type: 3}

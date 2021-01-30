@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject launcher;
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter(Collision col)
     {
-        
+        if(col.gameObject != launcher)
+        {
+            Debug.Log("bulletgone!");
+            Destroy(this.gameObject);
+        }
     }
 }

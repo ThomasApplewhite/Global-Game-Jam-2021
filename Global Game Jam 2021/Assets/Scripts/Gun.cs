@@ -38,7 +38,7 @@ public class Gun : MonoBehaviour
             {
                 hitInfo.transform.GetComponent<ActorHealth>()?.takeDamage(damage);
             }
-            //LaunchBullet();
+            LaunchBullet(gunSource.transform.forward);
 
             StartCoroutine(cooldown(shotCooldown));
         }
@@ -47,13 +47,21 @@ public class Gun : MonoBehaviour
 
     IEnumerator cooldown(float coolTime)
     {
+        var oldRot = gunSource.transform.localRotation;
+        gunSource.transform.localRotation = Quaternion.Euler(-30f, 0f, 0f);
         canShoot = false;
         yield return new WaitForSeconds(coolTime);
         canShoot = true;
+        gunSource.transform.localRotation = oldRot;
     }
 
-    /*void LaunchBullet()
+    void LaunchBullet(Vector3 launchDiection)
     {
-        Instantiate()
-    }*/
+        float bulletSpeed = 100f;
+
+        var bulletRotation = Quaternion.FromToRotation(Vector3.up, transform.forward);
+        var bullet = Instantiate(projectilePrefab, gunSource.transform.position, bulletRotation);
+        bullet.GetComponent<Bullet>().launcher = this.gameObject;
+        bullet.GetComponent<Rigidbody>().AddForce(launchDiection * bulletSpeed, ForceMode.Impulse);
+    }
 }
