@@ -729,6 +729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunSource: {fileID: 3034200536506038501}
+  projectilePrefab: {fileID: 110945958284249995, guid: bcbf4de9d5e45891696bcdb22074693e, type: 3}
   damage: 10
   range: 100
   shotCooldown: 1
@@ -760,6 +761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathScreen: {fileID: 3034200536640293769}
+  messageText: {fileID: 3034200535435312054}
 --- !u!1 &3034200536506038501
 GameObject:
   m_ObjectHideFlags: 0

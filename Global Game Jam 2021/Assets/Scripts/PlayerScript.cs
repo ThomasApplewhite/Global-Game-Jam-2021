@@ -7,13 +7,16 @@ using UnityEngine.InputSystem;
 public class PlayerScript : MonoBehaviour
 {
     public Image deathScreen;
+    public Text messageText;
 
     Gun gun;
+    BasicPlayerController controller;
 
     // Start is called before the first frame update
     void Start()
     {
         gun = this.gameObject.GetComponent<Gun>();
+        controller = this.gameObject.GetComponent<BasicPlayerController>();
     }
 
     // Update is called once per frame
@@ -25,6 +28,23 @@ public class PlayerScript : MonoBehaviour
     public void ShootEvent(InputAction.CallbackContext context)
     {
         gun.Shoot();
+    }
+
+    public void ApplyItem(Item item)
+    {
+        var statChange = item.Effect();
+
+        //speed change
+        controller.movementSpeed += statChange.movementSpeedChange;
+
+        //shooting speed change
+        gun.shotCooldown -= statChange.shootingSpeedChange;
+
+        //damage change
+        gun.damage += statChange.damageChange;
+
+        //message change
+        messageText.text = "You picked up " + statChange.adjustmentName;
     }
 
     public void DoActorDeath()
