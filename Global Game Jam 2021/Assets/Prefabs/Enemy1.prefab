@@ -305,6 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunSource: {fileID: 7698842175127053517}
+  projectilePrefab: {fileID: 110945958284249995, guid: bcbf4de9d5e45891696bcdb22074693e, type: 3}
   damage: 10
   range: 100
   shotCooldown: 3
@@ -321,6 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047eff278706b5accb4907e5cdcbcaf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.05
 --- !u!54 &7698842175483231520
 Rigidbody:
   m_ObjectHideFlags: 0
