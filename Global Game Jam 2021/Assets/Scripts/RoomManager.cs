@@ -45,8 +45,11 @@ public class RoomManager : MonoBehaviour
 
         Debug.Log("Room Over!");
 
-        GameObject itemToMake = PossibleItems[(int)Random.Range(0f, PossibleItems.Count - 1f)];
-        Instantiate(itemToMake, ItemSpawnPoint.position, Quaternion.identity);
+        if(PossibleItems.Count > 0)
+        {
+            GameObject itemToMake = PossibleItems[(int)Random.Range(0f, PossibleItems.Count - 1f)];
+            Instantiate(itemToMake, ItemSpawnPoint.position, Quaternion.identity);
+        }
 
         GameObject doorToOpen = Doors[(int)Random.Range(0f, Doors.Count - 1f)];
 
