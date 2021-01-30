@@ -7,6 +7,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public GameObject gunSource;
+    public GameObject projectilePrefab;
     public float damage = 10f;
     public float range = 100f;
     public float shotCooldown = 1f;
