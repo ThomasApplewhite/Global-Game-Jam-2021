@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     {
         if(col.gameObject != launcher)
         {
-            Debug.Log("bulletgone!");
+            //Debug.Log("bulletgone!");
             Destroy(this.gameObject);
         }
     }
