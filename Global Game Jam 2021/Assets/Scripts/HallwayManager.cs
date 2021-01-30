@@ -52,7 +52,7 @@ public class HallwayManager : MonoBehaviour
 
         //this whole correction thing isn't needed anymore
         //if it's facing the correct way...
-        if(Mathf.Abs(dotProd) < 0.2f)
+        if(Mathf.Abs(dotProd) < 0.02f)
         {
             Debug.Log("turning around new room...");
             //translate forward
