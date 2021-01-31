@@ -3,27 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerScript : MonoBehaviour
 {
     public Image deathScreen;
-    public Text messageText;
+    public TextMeshPro messageText;
+
+    public TextMeshPro damageText;
+    public TextMeshPro firedelayText;
+    public TextMeshPro speedText;
+    public TextMeshPro healthText;
 
     Gun gun;
     BasicPlayerController controller;
+    ActorHealth health;
 
     // Start is called before the first frame update
     void Start()
     {
         gun = this.gameObject.GetComponent<Gun>();
         controller = this.gameObject.GetComponent<BasicPlayerController>();
+        health = this.gameObject.GetComponent<ActorHealth>();
+
+        damageText.text = "Damage: " + gun.damage;
+        firedelayText.text = "Fire Delay: " + gun.shotCooldown;
+        speedText.text = "Speed: " + controller.movementSpeed;
+        healthText.text = "Health: " + health.currentHealth;
     }
 
-    // Update is called once per frame
+    /*// Update is called once per frame
     void Update()
     {
         
-    }
+    }*/
 
     public void ShootEvent(InputAction.CallbackContext context)
     {
@@ -45,6 +58,11 @@ public class PlayerScript : MonoBehaviour
 
         //message change
         messageText.text = "You picked up " + statChange.adjustmentName;
+        damageText.text = "Damage: " + gun.damage;
+        firedelayText.text = "Fire Delay: " + gun.shotCooldown;
+        speedText.text = "Speed: " + controller.movementSpeed;
+
+        StartCoroutine(messageClear());
     }
 
     public void DoActorDeath()
@@ -55,11 +73,15 @@ public class PlayerScript : MonoBehaviour
             deathScreen.color.b,
             1.0f
         );
+
+        controller.enabled = false;
+        messageText.text = "You are now Aliven't.";
     }
 
     public void DoActorDamageEffect()
     {
         StartCoroutine(screenBlip());
+        healthText.text = "Health: " + health.currentHealth;
     }
 
     IEnumerator screenBlip()
@@ -77,5 +99,11 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(.5f);
 
         deathScreen.color = oldColor;
+    }
+
+    IEnumerator messageClear()
+    {
+        yield return new WaitForSeconds(3f);
+        messageText.text = "";
     }
 }
