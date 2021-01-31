@@ -11,7 +11,7 @@ public class BasicPlayerController : MonoBehaviour
 
     [Header("Moving")]
     public Rigidbody playerBody; // to walk, move body, not this
-    public float movementSpeed = 25; // multiplier for movement
+    public float movementSpeed = 250; // multiplier for movement
     public float turnSpeed = 100; // multiplier for turning
 
     [Header("Looking")]
@@ -22,7 +22,7 @@ public class BasicPlayerController : MonoBehaviour
     [Header("CUSTOM")]
     [Range(1f, 10f)]
     public float lookSensitiviy = 1f;
-    public float forceOfGravity = 10f;
+    public float forceOfGravity = 100f;
 
     #region Receive Input Values
     // Call these functions from the PlayerInput component as set up by this guide:

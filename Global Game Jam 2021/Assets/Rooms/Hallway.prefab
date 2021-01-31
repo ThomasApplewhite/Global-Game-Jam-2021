@@ -241,7 +241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleRooms:
   - {fileID: 5909908310654759116, guid: dbb976782170ac1d2930c19604a3b35c, type: 3}
-  - {fileID: 5909908310654759116, guid: dbb976782170ac1d2930c19604a3b35c, type: 3}
+  - {fileID: 4195661252668639881, guid: 0f5e03775bc05a4dfa6ea239a8318c45, type: 3}
+  - {fileID: 7489109377234612324, guid: d70bf4f755b2523dba21fe38cadc7742, type: 3}
   receivingAnchor: {fileID: 8154551290757408800}
   givingAnchor: {fileID: 8154551291233407459}
 --- !u!1 &8154551290757408801
