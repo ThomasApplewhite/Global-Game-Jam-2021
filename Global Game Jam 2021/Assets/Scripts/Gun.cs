@@ -11,11 +11,10 @@ public class Gun : MonoBehaviour
     public float damage = 10f;
     public float range = 100f;
     public float shotCooldown = 1f;
-    public int shotAmount = 9;
 
-    bool canShoot = true;
+    protected bool canShoot = true;
 
-    // Start is called before the first frame update
+    /*// Start is called before the first frame update
     void Start()
     {
         
@@ -25,9 +24,9 @@ public class Gun : MonoBehaviour
     void Update()
     {
         
-    }
+    }*/
 
-    public void Shoot()
+    public virtual void Shoot()
     {
         if(canShoot)
         {
@@ -38,29 +37,29 @@ public class Gun : MonoBehaviour
             {
                 hitInfo.transform.GetComponent<ActorHealth>()?.takeDamage(damage);
             }
-            LaunchBullet(gunSource.transform.forward);
+            LaunchBullet(gunSource.transform.position, gunSource.transform.forward);
 
             StartCoroutine(cooldown(shotCooldown));
         }
 
     }
 
-    IEnumerator cooldown(float coolTime)
+    protected IEnumerator cooldown(float coolTime)
     {
         var oldRot = gunSource.transform.localRotation;
-        gunSource.transform.localRotation = Quaternion.Euler(-30f, 0f, 0f);
+        gunSource.transform.localRotation = Quaternion.Euler(-15f, 0f, 0f);
         canShoot = false;
         yield return new WaitForSeconds(coolTime);
         canShoot = true;
         gunSource.transform.localRotation = oldRot;
     }
 
-    void LaunchBullet(Vector3 launchDiection)
+    protected void LaunchBullet(Vector3 launchPosition, Vector3 launchDiection)
     {
         float bulletSpeed = 100f;
 
         var bulletRotation = Quaternion.FromToRotation(Vector3.up, transform.forward);
-        var bullet = Instantiate(projectilePrefab, gunSource.transform.position, bulletRotation);
+        var bullet = Instantiate(projectilePrefab, launchPosition, bulletRotation);
         bullet.GetComponent<Bullet>().launcher = this.gameObject;
         bullet.GetComponent<Rigidbody>().AddForce(launchDiection * bulletSpeed, ForceMode.Impulse);
     }
