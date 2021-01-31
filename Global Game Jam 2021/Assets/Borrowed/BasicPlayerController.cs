@@ -71,7 +71,7 @@ public class BasicPlayerController : MonoBehaviour
         if (moveInputs != Vector2.zero)
         {
             // Move around in XZ space
-            playerBody.AddRelativeForce(new Vector3(moveInputs.x * movementSpeed * Time.deltaTime, 0, moveInputs.y * movementSpeed * Time.deltaTime), ForceMode.Impulse);
+            playerBody.AddRelativeForce(new Vector3(moveInputs.x * movementSpeed * Time.deltaTime, -20f * Time.deltaTime, moveInputs.y * movementSpeed * Time.deltaTime), ForceMode.Impulse);
         }
     }
 }
