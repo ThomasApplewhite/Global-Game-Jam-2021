@@ -45,30 +45,34 @@ public class HallwayManager : MonoBehaviour
         //it might still end up backwards...
         //https://answers.unity.com/questions/1010169/how-to-know-if-an-object-is-looking-at-an-other.html
         //basically, this determines some stuff with vectors. If it's 1, then they're looking exactly at each other
-        Vector3 dirFromAtoB = (receivingAnchor.transform.position - doorPosition.position).normalized;
+        /*Vector3 dirFromAtoB = (receivingAnchor.transform.position - doorPosition.position).normalized;
         float dotProd = Vector3.Dot(dirFromAtoB, doorPosition.forward);
 
-        Debug.Log(dotProd);
+        Debug.Log(dotProd);*/
 
-        //this whole correction thing isn't needed anymore
-        //if it's facing the correct way...
-        if(Mathf.Abs(dotProd) < 0.02f)
+        //attach to givingAnchor
+        roomDoorAnchor.position = givingAnchor.position;
+
+        var dist = Vector3.Distance(newRoom.transform.position, this.gameObject.transform.position);
+        Debug.Log("Distance of Room and Hall: " + dist);
+
+        //if the hallway and the room are too close, that means the room needs to be flipped
+        if(dist < 45f)
+        //nice
         {
             Debug.Log("turning around new room...");
             //translate forward
             //well backward because according to unity the receivingAnchor is on the back
-            roomDoorAnchor.transform.Translate(roomDoorAnchor.transform.forward * -100, Space.World);
+            roomDoorAnchor.transform.Translate(roomDoorAnchor.transform.forward * 200, Space.World);
 
             //turn around?
             newRot = Quaternion.LookRotation(givingAnchor.position * -1, Vector3.up);
             newRot.x = 0;
             newRot.z = 0;
             roomDoorAnchor.transform.rotation = newRot;
+            //attach to givingAnchor
+            roomDoorAnchor.position = givingAnchor.position;
         }
-
-
-        //attach to givingAnchor
-        roomDoorAnchor.position = givingAnchor.position;
 
         //open the door to the new room
         roomDoor.transform.Translate(new Vector3(0, -10, 0), Space.World);
@@ -91,6 +95,12 @@ public class HallwayManager : MonoBehaviour
         newRot.x = 0;
         newRot.z = 0;
         receivingAnchor.transform.rotation = newRot;
+
+        //slot into place
+        receivingAnchor.transform.position = doorPosition.position;
+
+        //finally unparent the room
+        newRoom.transform.parent = null;
 
         //https://answers.unity.com/questions/1010169/how-to-know-if-an-object-is-looking-at-an-other.html
         //basically, this determines some stuff with vectors. If it's 1, then they're looking exactly at each other
@@ -122,18 +132,7 @@ public class HallwayManager : MonoBehaviour
         }*/
         //if it isn't the forward-and-turn-around setp can be skipped because it's already facing that way
         
-        //slot into place
-        receivingAnchor.transform.position = doorPosition.position;
-
-        //receivingAnchor.transform.LookAt(doorPosition, Vector3.up);
         
-        //receivingAnchor.transform.Rotate(new Vector3(0, 180, 0));
-        
-        /*this.gameObject.transform.parent = null;
-        receivingAnchor.transform.parent = this.gameObject.transform;*/
-
-        //finally unparent the room
-        newRoom.transform.parent = null;
 
     }
 }

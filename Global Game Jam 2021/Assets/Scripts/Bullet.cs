@@ -10,7 +10,6 @@ public class Bullet : MonoBehaviour
     {
         if(col.gameObject != launcher)
         {
-            Debug.Log("bulletgone to " + col.gameObject.name);
             Destroy(this.gameObject);
         }
     }
