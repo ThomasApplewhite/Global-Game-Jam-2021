@@ -22,6 +22,7 @@ public class BasicPlayerController : MonoBehaviour
     [Header("CUSTOM")]
     [Range(1f, 10f)]
     public float lookSensitiviy = 1f;
+    public float forceOfGravity = 10f;
 
     #region Receive Input Values
     // Call these functions from the PlayerInput component as set up by this guide:
@@ -73,5 +74,8 @@ public class BasicPlayerController : MonoBehaviour
             // Move around in XZ space
             playerBody.AddRelativeForce(new Vector3(moveInputs.x * movementSpeed * Time.deltaTime, -20f * Time.deltaTime, moveInputs.y * movementSpeed * Time.deltaTime), ForceMode.Impulse);
         }
+
+        //apply graviy
+        playerBody.AddRelativeForce(new Vector3(0, -forceOfGravity, 0));
     }
 }
