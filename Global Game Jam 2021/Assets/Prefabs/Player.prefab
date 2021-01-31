@@ -958,7 +958,7 @@ MonoBehaviour:
   moveInputs: {x: 0, y: 0}
   lookInputs: {x: 0, y: 0}
   playerBody: {fileID: 3034200536481729929}
-  movementSpeed: 100
+  movementSpeed: 250
   turnSpeed: 100
   playerHead: {fileID: 3034200535835263581}
   lookAngleRange: 60
