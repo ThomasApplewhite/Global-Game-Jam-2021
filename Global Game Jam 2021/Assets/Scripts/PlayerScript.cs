@@ -43,6 +43,11 @@ public class PlayerScript : MonoBehaviour
         gun.Shoot();
     }
 
+    public void QuitEvent(InputAction.CallbackContext context)
+    {
+        Application.Quit();
+    }
+
     public void ApplyItem(Item item)
     {
         var statChange = item.Effect();

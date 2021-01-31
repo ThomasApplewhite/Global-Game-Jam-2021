@@ -963,6 +963,7 @@ MonoBehaviour:
   playerHead: {fileID: 3034200535835263581}
   lookAngleRange: 60
   lookSensitiviy: 3
+  forceOfGravity: 100
 --- !u!54 &3034200536481729929
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1067,7 +1068,19 @@ MonoBehaviour:
     m_ActionId: 62349bbb-0fc6-4745-a672-21c511cf60d2
     m_ActionName: Gameplay/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3034200536481729921}
+        m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
+        m_MethodName: QuitEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a4887826-1ba0-4174-b45e-eeff1b96513e
     m_ActionName: Gameplay/Menu[/Keyboard/escape]
   - m_PersistentCalls:
@@ -1129,6 +1142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingMaxHealth: 50
   damageResistance: 0
+  isInvincible: 0
 --- !u!114 &3034200536481729921
 MonoBehaviour:
   m_ObjectHideFlags: 0
