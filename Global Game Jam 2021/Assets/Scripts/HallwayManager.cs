@@ -7,6 +7,8 @@ public class HallwayManager : MonoBehaviour
     public List<GameObject> possibleRooms;
     public Transform receivingAnchor;
     public Transform givingAnchor;
+
+    public static int hallmake = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,18 +21,22 @@ public class HallwayManager : MonoBehaviour
         
     }*/
 
-    public void SetupHallway(Transform doorPosition)
+    public void SetupHallway(Transform doorPosition, Transform startPosition)
     {
+        ++HallwayManager.hallmake;
+
         //actually first make the new room
         var roomPick = (int)Random.Range(0f, possibleRooms.Count - 1f);
         Debug.Log("Generating room " + roomPick);
-        var room = possibleRooms[roomPick];
+        var room = possibleRooms[roomPick]; //startPosition.position.x, startPosition.position.z
         GameObject newRoom = Instantiate(room, new Vector3(0, -200, 0), Quaternion.identity);
         GameObject roomDoor = 
             newRoom.GetComponent<RoomManager>().Doors[
                 (int)Random.Range(0f, newRoom.GetComponent<RoomManager>().Doors.Count - 1f)];
         Transform roomDoorAnchor = roomDoor.transform.GetChild(0);
         //the first room is now generated
+
+        //return;
 
         //setup anchor parantage
         roomDoorAnchor.parent = null;
@@ -92,12 +98,19 @@ public class HallwayManager : MonoBehaviour
         Debug.Log(doorPosition.position);
         //look at anchor
         newRot = Quaternion.LookRotation(doorPosition.position, Vector3.up);
+        Debug.Log("Hallway Rotation angle: " + newRot.y);
         newRot.x = 0;
         newRot.z = 0;
         receivingAnchor.transform.rotation = newRot;
 
         //slot into place
+        /*if(HallwayManager.hallmake < 2)
+        {
+            
+        }*/
         receivingAnchor.transform.position = doorPosition.position;
+        Debug.Log("Final Hallway Rotation: " + receivingAnchor.transform.rotation.y);
+        
 
         //finally unparent the room
         newRoom.transform.parent = null;

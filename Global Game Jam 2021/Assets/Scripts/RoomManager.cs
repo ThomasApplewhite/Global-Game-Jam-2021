@@ -52,9 +52,9 @@ public class RoomManager : MonoBehaviour
         }
 
         GameObject doorToOpen = Doors[(int)Random.Range(0f, Doors.Count - 1f)];
-
+                                                            //this.gameObject.transform.position.x, this.gameObject.transform.position.z
         GameObject hallway = Instantiate(Hallway, new Vector3(0, -100, 0), Quaternion.identity);
-        hallway.GetComponent<HallwayManager>()?.SetupHallway(doorToOpen.transform.GetChild(0).transform);
+        hallway.GetComponent<HallwayManager>()?.SetupHallway(doorToOpen.transform.GetChild(0).transform, this.gameObject.transform);
 
         doorToOpen.transform.Translate(new Vector3(0 -10, 0));
         
