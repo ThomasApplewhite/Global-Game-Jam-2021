@@ -99,9 +99,11 @@ public class HallwayManager : MonoBehaviour
         //look at anchor
         newRot = Quaternion.LookRotation(doorPosition.position, Vector3.up);
         Debug.Log("Hallway Rotation angle: " + newRot.y);
+        //time to get funky (that is, copy the rotation of the wall we're attaching to)
+        //newRot.y = 0;//roomDoorAnchor.parent.parent.localRotation.y;
         newRot.x = 0;
         newRot.z = 0;
-        receivingAnchor.transform.rotation = newRot;
+        receivingAnchor.transform.localRotation = newRot;
 
         //slot into place
         /*if(HallwayManager.hallmake < 2)

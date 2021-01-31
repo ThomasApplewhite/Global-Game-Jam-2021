@@ -5,7 +5,7 @@ using UnityEngine;
 public class DamageUpItem : Item
 {
     public string name = "Sphere of KhykKhykKhyk";
-    public float damageIncrease = 1.0f;
+    public float damageIncrease = 10f;
     
     //shot speed, move speed, damage
     public override StatObject Effect()

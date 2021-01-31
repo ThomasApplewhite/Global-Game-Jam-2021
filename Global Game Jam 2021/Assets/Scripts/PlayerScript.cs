@@ -61,11 +61,15 @@ public class PlayerScript : MonoBehaviour
         //damage change
         gun.damage += statChange.damageChange;
 
+        //have some health
+        health.currentHealth += 10f;
+
         //message change
         messageText.text = "You picked up " + statChange.adjustmentName;
         damageText.text = "Damage: " + gun.damage;
         firedelayText.text = "Fire Delay: " + gun.shotCooldown;
         speedText.text = "Speed: " + controller.movementSpeed;
+        healthText.text = "Health: " + health.currentHealth;
 
         StartCoroutine(messageClear());
     }
