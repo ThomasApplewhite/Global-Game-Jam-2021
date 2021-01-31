@@ -81,12 +81,13 @@ public class PlayerScript : MonoBehaviour
     public void DoActorDamageEffect()
     {
         StartCoroutine(screenBlip());
-        healthText.text = "Health: " + health.currentHealth;
     }
 
     IEnumerator screenBlip()
     {
+        health.isInvincible = true;
         var oldColor = deathScreen.color;
+        healthText.text = "Health: " + health.currentHealth;
 
         deathScreen.color = new Color(
             deathScreen.color.r,
@@ -94,11 +95,11 @@ public class PlayerScript : MonoBehaviour
             deathScreen.color.b,
             0.6f
         );
-        Debug.Log("Oofoff");
 
         yield return new WaitForSeconds(.5f);
 
         deathScreen.color = oldColor;
+        health.isInvincible = false;
     }
 
     IEnumerator messageClear()

@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunSource: {fileID: 3034200536506038501}
   projectilePrefab: {fileID: 110945958284249995, guid: bcbf4de9d5e45891696bcdb22074693e, type: 3}
-  damage: 10
+  damage: 25
   range: 100
   shotCooldown: 1
   spreadSources:

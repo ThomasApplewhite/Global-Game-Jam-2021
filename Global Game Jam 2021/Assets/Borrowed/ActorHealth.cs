@@ -14,6 +14,8 @@ public class ActorHealth : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float damageResistance = 0.0f;
 
+    public bool isInvincible = false;
+
     //Public Properties (Publicly Accessable)
     public float maxHealth { get; set; }
     public float currentHealth { get; set; }
@@ -32,6 +34,11 @@ public class ActorHealth : MonoBehaviour
     }*/
 
     public virtual void takeDamage(float damageTaken){
+        if(isInvincible)
+        {
+            return;
+        }
+        
         var damage = Mathf.Floor(damageTaken * (1.0f - damageResistance));
         Debug.Log("taking " + damage + " damage");
 

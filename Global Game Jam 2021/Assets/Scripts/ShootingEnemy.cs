@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.UI;
 
 public class ShootingEnemy : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ShootingEnemy : MonoBehaviour
     Gun gun;
     Vector2 moveDirection;
     Rigidbody body;
+    SpriteRenderer image;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,7 @@ public class ShootingEnemy : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         gun = this.gameObject.GetComponent<Gun>();
         body = this.gameObject.GetComponent<Rigidbody>();
+        image = this.gameObject.GetComponent<SpriteRenderer>();
 
         moveDirection = Vector2.zero;
 
@@ -53,9 +56,22 @@ public class ShootingEnemy : MonoBehaviour
         ChangeMovement();
     }
 
+    public void DoActorDamageEffect()
+    {
+        StartCoroutine(colorTime(0.05f));
+    }
+
     public void DoActorDeath()
     {
         Destroy(this.gameObject);
+    }
+
+    IEnumerator colorTime(float time)
+    {
+        Color old = image.color;
+        image.color = Color.white;
+        yield return new WaitForSeconds(time);
+        image.color = old;
     }
 }
 

@@ -56,7 +56,7 @@ public class Gun : MonoBehaviour
 
     protected void LaunchBullet(Vector3 launchPosition, Vector3 launchDiection)
     {
-        float bulletSpeed = 100f;
+        float bulletSpeed = 1000f;
 
         var bulletRotation = Quaternion.FromToRotation(Vector3.up, transform.forward);
         var bullet = Instantiate(projectilePrefab, launchPosition, bulletRotation);
